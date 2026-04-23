@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './History.css';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function History() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/games')
+    fetch(`${API_URL}/api/games`)
       .then(res => res.json())
       .then(data => setGames(data));
   }, []);
