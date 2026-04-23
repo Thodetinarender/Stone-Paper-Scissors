@@ -17,9 +17,11 @@ mongoose.connect(process.env.MONGODB_URI)
 const gameRoutes = require('./routes/games');
 app.use('/api/games', gameRoutes);
 
+// Serve React static files
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-app.get('*', (req, res) => {
+// Handle React routing - send index.html for all non-API routes
+app.get('/:path(.*)?', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
