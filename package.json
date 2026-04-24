@@ -1,21 +1,15 @@
 {
   "name": "stone-paper-scissors",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "cd client && npm run build",
+    "build": "cd client && npm install && npm run build",
     "start": "node server/app.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm start",
-    "client": "cd client && npm start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "cd client && npm start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^9.2.1"
   }
 }

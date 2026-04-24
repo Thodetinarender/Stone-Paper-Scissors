@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -20,9 +20,11 @@ app.use('/api/games', gameRoutes);
 // Serve React static files
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-// Handle React routing - catch-all must be LAST
+// Catch-all (Express 5 safe)
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

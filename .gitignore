@@ -5,8 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Production builds
-client/build/
-server/build/
+/client/build/
+/server/build/
 
 # Environment variables
 .env
@@ -40,13 +40,10 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
 
-# nyc test coverage
-.nyc_output
-
-# Dependency directories
+# Dependencies directories
 jspm_packages/
 
 # Optional npm cache directory
@@ -61,10 +58,7 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-
-# parcel-bundler cache (https://parceljs.org/)
+# parcel-bundler cache
 .cache
 .parcel-cache
 
