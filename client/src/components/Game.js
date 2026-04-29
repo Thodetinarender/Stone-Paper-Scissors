@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Game.css';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL ='http://35.154.30.113:5000'; // process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 
 function Game() {
   const [playerName, setPlayerName] = useState('');
@@ -25,7 +26,7 @@ function Game() {
       body: JSON.stringify({ player1: playerName, player2: 'Computer' })
     });
     const game = await res.json();
-    setGameId(game._id);
+    setGameId(game.id);
     setGameStarted(true);
   };
 

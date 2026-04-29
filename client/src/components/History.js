@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './History.css';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL ='http://35.154.30.113:5000'; // process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 function History() {
   const [games, setGames] = useState([]);
@@ -31,7 +31,7 @@ function History() {
           <p className="no-games">No games played yet!</p>
         ) : (
           games.map(game => (
-            <div key={game._id} className="game-card">
+            <div key={game.id} className="game-card">
               <h3>{game.player1} vs {game.player2}</h3>
               <p className="winner">Winner: <span className="winner-name">{game.winner}</span></p>
               <div className="rounds">
